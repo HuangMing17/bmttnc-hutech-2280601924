@@ -19,9 +19,10 @@ class MyApp(QMainWindow):
         }
         try:
             response = requests.post(url, json=payload)
+          
             if response.status_code == 200:
                 data = response.json()
-                self.ui.txt_cipher.setPlainText(data['encrypted_message'])
+                self.ui.txt_cipher.setPlainText(data['encrypted_text'])  # Changed from 'encrypted_message' to 'encrypted_text'
 
                 msg = QMessageBox()
                 msg.setIcon(QMessageBox.Information)
@@ -40,9 +41,10 @@ class MyApp(QMainWindow):
         }
         try:
             response = requests.post(url, json=payload)
+            
             if response.status_code == 200:
                 data = response.json()
-                self.ui.txt_plain.setPlainText(data['decrypted_message'])
+                self.ui.txt_plain.setPlainText(data['decrypted_text'])  # Changed to match server's response format
 
                 msg = QMessageBox()
                 msg.setIcon(QMessageBox.Information)
@@ -52,6 +54,9 @@ class MyApp(QMainWindow):
                 print("ERROR while calling API")  # Sửa lỗi chính tả
         except requests.exceptions.RequestException as e:
             print("Error: %s" % str(e))  # Sửa lỗi e.message
+
+
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
