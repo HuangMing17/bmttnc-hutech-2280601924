@@ -54,7 +54,7 @@ while (1 ==1):
             qlsv.showSinhVien(qlsv.getListSinhVien())
 
         else:
-            print("Danh sach sinh vien rong")
+            print("Danh sach sinh vien rong") 
     elif (key ==6):
         if (qlsv.soLuongSinhVien() > 0):
             print("\n6. Sap xep sinh vien theo ten chuyên ngành ")
